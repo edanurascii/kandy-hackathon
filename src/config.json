@@ -1,0 +1,24 @@
+{
+    "authentication": {
+        "server": {
+          "base": "oauth-cpaas.att.com"
+        },
+        "clientCorrelator": "PUB-sdkmobile.ryfq.MSDK"
+      },
+      "logs": {
+        "logLevel": "debug"
+      },
+      "call": {
+        "iceServers": [
+          {
+            "urls": ""
+          }
+        ],
+        "serverTurnCredentials": false
+      },
+      "connectivity": {
+        "method": "pingPong",
+        "pingInterval": 30000,
+        "maxMissedPings": 3
+      }
+}

@@ -6,8 +6,8 @@ import {
 }                                                   from 'redux';
 import reduceReducers                               from 'reduce-reducers';
 
-import { actions as authActions}                        from './kandy/authentication';
-import * as kandyStore                       from './kandy/index';
+import { actions as authActions}                    from './kandy/authentication';
+import * as kandyStore                              from './kandy/index';
 import {
     INIT_ACTION,
     applyInterceptors

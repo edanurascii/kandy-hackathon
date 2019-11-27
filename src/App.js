@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 
 import { actions as authActions } from './store/kandy/authentication';
@@ -22,7 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <button onClick={ () => dispatch(authActions.getTokens(CONSTANTS)) }>subscribe</button>
-        <input onChange={ (event) => this.setState({number: event.target.value}) } />
+        <input onChange={ event => this.setState({number: event.target.value}) } />
         <button onClick={ () => dispatch(authActions.startCall(number)) }>Start Call</button>
       </div>
     );
@@ -33,4 +32,5 @@ function select() {
   return {
   }
 }
+
 export default connect(select)(App);

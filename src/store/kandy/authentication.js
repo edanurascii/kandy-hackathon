@@ -1,5 +1,5 @@
-import { create }   from '@kandy-io/cpaas-sdk';
-import _            from 'lodash';
+import { create }           from '@kandy-io/cpaas-sdk';
+import _                    from 'lodash';
 
 import {
     createActions,
@@ -7,8 +7,8 @@ import {
     createInterceptors,
     createReducer,
     createSelectors
-}       from '../storeUtils';
-import { createFormBody } from '../../utils';
+}                           from '../storeUtils';
+import { createFormBody }   from '../../utils';
 
 const MOUNT = 'kandy.authentication';
 let Kandy = null;
@@ -36,8 +36,8 @@ const actionTypes = createActionTypes(MOUNT, [
 const actions = createActions({
     [actionTypes.SETUP_KANDY]: undefined,
     [actionTypes.GET_TOKENS]: config => config,
-    [actionTypes.SET_TOKENS]: (tokens) => tokens,
-    [actionTypes.START_CALL]: (number) => number,
+    [actionTypes.SET_TOKENS]: tokens => tokens,
+    [actionTypes.START_CALL]: number => number,
 });
 
 
@@ -115,7 +115,7 @@ const interceptors = createInterceptors(MOUNT, {
           grant_type,
           scope
         });
-      
+
         // POST a request to create a new authentication access token.
         const cpaasAuthUrl = 'https://oauth-cpaas.att.com/cpaas/auth/v1/token'
         const fetchResult = await fetch(cpaasAuthUrl, {
@@ -125,10 +125,10 @@ const interceptors = createInterceptors(MOUNT, {
           },
           body: formBody
         });
-      
+
         // Parse the result of the fetch as a JSON format.
         const data = await fetchResult.json()
-      
+
         dispatch(actions.setTokens({ accessToken: data.access_token, idToken: data.id_token }));
     },
 
